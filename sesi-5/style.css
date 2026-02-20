@@ -1,0 +1,108 @@
+/* Custom Modern Blue Theme */
+:root {
+    --primary-blue: #2563eb;
+    --dark-blue: #1e40af;
+    --soft-blue: #f8faff;
+    --text-main: #1f2937;
+    --text-muted: #6b7280;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffffff;
+    color: var(--text-main);
+}
+
+/* Navbar Modern */
+.navbar {
+    border-bottom: 1px solid #edf2f7;
+    padding: 1rem 0;
+}
+
+.navbar-brand span {
+    color: var(--primary-blue);
+}
+
+/* Button Custom */
+.btn-blue {
+    background-color: var(--primary-blue);
+    color: white;
+    border-radius: 8px;
+    font-weight: 500;
+    padding: 10px 24px;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-blue:hover {
+    background-color: var(--dark-blue);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.btn-outline-blue {
+    border: 1.5px solid var(--primary-blue);
+    color: var(--primary-blue);
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.btn-outline-blue:hover {
+    background-color: var(--primary-blue);
+    color: white;
+}
+
+/* Product Card Modern */
+.card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #f1f5f9 !important;
+    border-radius: 16px !important;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+.card-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Ini akan memaksa body mengambil sisa ruang yang ada */
+}
+
+.card-text {
+    flex-grow: 1; /* Ini memaksa deskripsi mengambil ruang tengah agar tombol terdorong ke bawah */
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02) !important;
+}
+
+/* Badge Kategori */
+.badge-category {
+    background-color: var(--soft-blue);
+    color: var(--primary-blue);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Section Styling */
+.bg-soft {
+    background-color: var(--soft-blue);
+}
+
+.text-blue {
+    color: var(--primary-blue) !important;
+}
+
+/* Image Container */
+.product-img-wrapper {
+    background-color: #fcfcfc;
+    border-radius: 12px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

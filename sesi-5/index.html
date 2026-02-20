@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+    <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <!-- E-commerce-->
+        <section class="container my-5">
+        <h2 class="text-center fw-bold mb-4">My Products</h2>
+            <div class="d-flex justify-content-center gap-2 mb-5">
+                <button class="btn btn-blue rounded-pill px-4" onclick="filterProduk('all')">All</button>
+                <button class="btn btn-outline-blue rounded-pill px-4" onclick="filterProduk('elektronik')">Elektronik</button>
+                <button class="btn btn-outline-blue rounded-pill px-4" onclick="filterProduk('fashion')">Fashion</button>
+            </div>
+            <div class="row g-4" id="product-container">
+            </div>
+        </section>  
+        <script>
+        // Array Data Produk
+        const daftarProduk = [
+            {
+                nama: "HP EliteBook X G1i 14",
+                harga: 35000000,
+                deskripsi: "Laaptop bisnis premium 14 inci yang ramping dan didukung AI, menampilkan prosesor Intel® Core™ Ultra (seri 200V) dan Intel Arc Graphicsptop kencang untuk desain grafis dan coding.",
+                gambar: "https://lasus.com.co/247482-large_default/hp-elitebook-x-g1i-14-intel-core-ultra-7-258v-8-nucleos-4-p-cores-0-e-cores-4-lpe-cores-8-hilos-12-mb-intel-smart.jpg",
+                kategori: "elektronik"
+            },
+            {
+                nama: "Uniqlo Jaket Parka Seamless Down Pria",
+                harga: 450000,
+                deskripsi: "Tahan angin, tahan air, dan awet, berbahan down berkualitas tinggi dengan fill power 750+.",
+                gambar: "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/470077/sub/goods_470077_sub14_3x4.jpg?width=600",
+                kategori: "fashion"
+            },
+            {
+                nama: "Apple iPhone 13 Mini",
+                harga: 5000000,
+                deskripsi: "iPhone kompak berlayar 5,4 inci Super Retina XDR OLED yang bertenaga chipset A15 Bionic dan mendukung 5G.",
+                gambar: "https://images-cdn.ubuy.co.id/651a9464fe61d662447e7661-straight-talk-apple-iphone-13-mini.jpg",
+                kategori: "elektronik"
+            },
+            {
+                nama: "New Balance 1906 Unisex",
+                harga: 800000,
+                deskripsi: "Sepatu ini menonjolkan desain klasik yang dipadukan dengan teknologi modern, menciptakan daya tarik yang timeless.",
+                gambar: "https://www.footlocker.id/media/catalog/product/cache/f57d6f7ebc711fc328170f0ddc174b08/0/1/01-NEW-BALANCE-F55CQNEWA-NEWM1906RER-Grey.jpg",
+                kategori: "fashion"
+            }
+         ];
+
+        // 2. Fungsi untuk Menampilkan Produk (Looping)
+        function tampilkanProduk(data) {
+            const container = document.getElementById('product-container');
+            container.innerHTML = ""; // Bersihkan kontainer sebelum isi baru
+            data.forEach(produk => {
+                const card = `
+                    <div class="col-md-3">
+                        <div class="card h-100 shadow-sm border-0">
+                            <div class="product-img-wrapper">
+                                <img src="${produk.gambar}" class="card-img-top p-3" alt="${produk.nama}">
+                            </div>
+                            <div class="card-body">
+                                <span class="badge-category mb-2 d-inline-block">${produk.kategori}</span>
+                                <h5 class="card-title fw-bold" style="font-size: 1.1rem;">${produk.nama}</h5>
+                                <p class="card-text text-muted small">${produk.deskripsi}</p>
+                                <div class="d-flex justify-content-between align-items-center mt-3">
+                                    <span class="fw-bold text-blue">Rp ${produk.harga.toLocaleString('id-ID')}</span>
+                                </div>
+                                <button class="btn btn-blue w-100 mt-3">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+            `   ;
+                container.innerHTML += card;
+            });
+        }
+
+        // 3. Fungsi Filter Sederhana
+        function filterProduk(kategori) {
+            if (kategori === 'all') {
+                tampilkanProduk(daftarProduk);
+            } else {
+                const hasilFilter = daftarProduk.filter(p => p.kategori === kategori);
+                tampilkanProduk(hasilFilter);
+            }
+        }
+
+        // Jalankan fungsi pertama kali saat halaman dimuat
+        tampilkanProduk(daftarProduk);
+        </script>
+        </section>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="script.js"></script>     
+  </body>
+</html>
